@@ -42,8 +42,7 @@
 
                 </select>
             </div>
-    </div>
-    <div class="col-md-4">
+            
             <?php//liste déroulante des mois?>
             
             &nbsp;<div class="form-group" style="display: inline-block">
@@ -74,6 +73,5 @@
                    role="button">
         </form>
     </div>
-</div>
 
 

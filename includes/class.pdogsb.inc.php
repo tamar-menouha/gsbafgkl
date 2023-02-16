@@ -597,7 +597,7 @@ class PdoGsb
      * @param int $leMois            Mois sous la forme aaaamm
      * @return int                   Somme du montant des frais forfaitisés
      */
-     public function montantFF($idVisiteur,$leMois){
+     public function getMontantFF($idVisiteur,$leMois){
         $requetePrepare = PdoGsb::$monPdo->prepare(
         'SELECT SUM(lignefraisforfait.quantite*fraisforfait.montant)'  
         .'FROM lignefraisforfait join fraisforfait on(lignefraisforfait.idfraisforfait=fraisforfait.id)' 
@@ -616,7 +616,7 @@ class PdoGsb
      * @param int $leMois            Mois sous la forme aaaamm
      * @return int                   Somme du montant des frais hors forfait
      */
-     public function montantHF($idVisiteur,$leMois){
+     public function getMontantHF($idVisiteur,$leMois){
         $requetePrepare = PdoGsb::$monPdo->prepare(
         'SELECT SUM(lignefraishorsforfait.montant) '
         . 'FROM lignefraishorsforfait '
@@ -638,7 +638,7 @@ class PdoGsb
      * @param int $total             Resultat de la somme du montant des frais forfaitisés+celui des frais hors forfait
      * @return int                   Montant total des frais forfaitisés et hors forfait
      */
-    public function total($idVisiteur, $leMois, $total)
+    public function majTotal($idVisiteur, $leMois, $total)
     {
         $requetePrepare = PdoGSB::$monPdo->prepare(
             'UPDATE fichefrais '
